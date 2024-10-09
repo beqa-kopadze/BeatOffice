@@ -223,6 +223,152 @@ Each button corresponds to one of the following MIDI percussion instruments:
 - **MIDI Support**: Both components interact with a `MidiChannel` and a `Sequencer` to play MIDI sounds.
 
 
+# BeatOfficeMain - Cyber BeatBox
+
+BeatOfficeMain is a Java-based music creation app that lets users play, edit, and share rhythm sequences. Users can create and control various MIDI instruments through an intuitive graphical interface, allowing for collaborative music creation.
+
+## Features
+
+- **16x16 Grid Interface**: Create beats using checkboxes for 16 different instruments.
+- **MIDI Support**: Uses Java MIDI to play and sequence beats.
+- **Real-Time Interaction**: Start, stop, and adjust tempo in real-time.
+- **Save and Share**: Send beat sequences to other users and play shared sequences.
+- **Remote Collaboration**: Connect to a server to collaborate on beats with other users.
+
+## Instruments
+- Bass Drum
+- Closed Hi-Hat
+- Open Hi-Hat
+- Acoustic Snare
+- Crash Cymbal
+- Hand Clap
+- High Tom
+- Hi Bongo
+- Maracas
+- Whistle
+- Low Conga
+- Cowbell
+- Vibraslap
+- Low-mid Tom
+- High Agogo
+- Open Hi Conga
+
+## Requirements
+
+- Java JDK 8 or above
+- MIDI sound support (included with Java SE)
+- A server for remote collaboration (optional, default is localhost on port 4242)
+
+## How to Run
+
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your-username/beat-office2.git
+    ```
+
+2. **Compile the Code**:
+    ```bash
+    javac BeeatOfficeMain.java
+    ```
+
+3. **Run the Application**:
+   To start the app:
+    ```bash
+    java BeeatOfficeMain
+    ```
+    - This will generate a random user ID for you.
+    - If you want to specify a username, you can pass it as an argument:
+    ```bash
+    java BeeatOfficeMain [YourUserName]
+    ```
+
+4. **Server Connection**:
+   By default, the app connects to `localhost:4242`. If you want to run a server, set up your socket connection and ensure it's running on the specified port.
+
+## Usage
+
+- **Create Beats**: Select or deselect checkboxes to create a rhythm. Each checkbox corresponds to an instrument in one of the 16 steps of the sequence.
+- **Start/Stop**: Use the buttons to start or stop the playback.
+- **Change Tempo**: Click "Tempo Up" or "Tempo Down" to adjust the playback speed.
+- **Share Beats**: Type a message and click "sendIt" to share your beat with connected users.
+
+## Remote Collaboration
+
+- Users can connect to a server, share beats, and load sequences created by other users. Make sure the server is running and accessible via the IP address `127.0.0.1` on port `4242` or modify this in the `BeeatOfficeMain` class.
+
+## Contributing
+
+Feel free to contribute to BeatOffice2! Here’s how you can get started:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes.
+4. Submit a pull request.
+
+
+# BeatOfficeMain Server
+
+BeatOfficeMain Server is a Java-based server that enables real-time collaboration for the BeatOffice2 music creation application. It handles connections from multiple clients and facilitates the sharing of beat sequences between users.
+
+## Features
+
+- **Client Management**: Accepts connections from multiple clients and maintains a list of connected clients.
+- **Real-Time Collaboration**: Broadcasts beat sequences and messages to all connected clients.
+- **Object-Based Communication**: Uses Java object streams to transmit complex data between clients and the server.
+
+## Requirements
+
+- Java JDK 8 or above
+- Network socket access on port 4242
+
+## How to Run
+
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/your-username/beat-office2-server.git
+    ```
+
+2. **Compile the Server Code**:
+    ```bash
+    javac BeatOfficeServer.java
+    ```
+
+3. **Run the Server**:
+    ```bash
+    java BeatOfficeServer
+    ```
+
+   The server will start and listen for incoming client connections on port 4242.
+
+## How it Works
+
+1. **Client Connections**:
+    - The server listens on port 4242 for incoming client connections.
+    - Each client that connects is assigned an `ObjectOutputStream` to send data back to the client and an `ObjectInputStream` to receive data from the client.
+    - A new thread is spawned for each connected client, ensuring simultaneous communication with all users.
+
+2. **Broadcasting Messages**:
+    - The server reads two objects from each client: the user's message and the current state of their beat sequence.
+    - These objects are broadcast to all connected clients using the `tellEveryone()` method, ensuring synchronized collaboration.
+
+## Example Flow
+
+1. Start the server:
+    ```bash
+    java BeatOfficeServer
+    ```
+
+2. Multiple clients will connect to the server and share their beat sequences.
+
+3. The server will distribute these beat sequences to all other connected clients in real-time.
+
+## Contributing
+
+Feel free to contribute to BeatOffice2 Server! Here’s how you can get started:
+1. Fork the repository.
+2. Create a new branch: `git checkout -b feature-name`.
+3. Make your changes.
+4. Submit a pull request.
+
 ## License
 
 This projects is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
