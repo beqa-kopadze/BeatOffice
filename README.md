@@ -1,5 +1,7 @@
 # BeatBoard - A MIDI-based Beat Sequencer
 
+![Logo](photos/BeatBoard.png)
+
 **BeatBoard** is a simple graphical beat sequencer built using Java Swing and MIDI libraries. The program allows you to create rhythmic sequences by toggling instrument buttons on a 16x16 grid. You can start/stop playback, adjust the tempo, and save/load your sequences to/from files.
 
 ## Features
@@ -75,6 +77,8 @@
 
 # BeatPad - MIDI Drum Pad Application
 
+![Logo](photos/BeatPad.png)
+
 **BeatPad** is a graphical drum pad simulator built with Java Swing and the MIDI library. The application provides a 4x4 grid of buttons that correspond to different drum sounds. Each button, when pressed, plays a different instrument sound using the MIDI synthesizer. The visual effect changes the button color when pressed to simulate a drum pad interface.
 
 ## Features
@@ -141,6 +145,9 @@ Each button on the grid plays one of the following MIDI percussion instruments:
 
 
 # TestApplication - Combined BeatOffice (BeatPad & BeatBoard)
+
+![Logo](photos/TestApplication.png)
+![Logo](photos/TestApplication2.png)
 
 **TestApplication** is a Java Swing-based GUI application that combines two music production tools: **BeatBoard** and **BeatPad**. Both of these tools allow users to interact with MIDI instruments, with **BeatBoard** offering a sequencer grid and **BeatPad** providing a real-time drum pad interface. The application utilizes a card layout to switch between the two components via a menu.
 
@@ -224,6 +231,8 @@ Each button corresponds to one of the following MIDI percussion instruments:
 
 
 # BeatOfficeMain - Cyber BeatBox
+
+![Logo](photos/BeatOfficeMain.png)
 
 BeatOfficeMain is a Java-based music creation app that lets users play, edit, and share rhythm sequences. Users can create and control various MIDI instruments through an intuitive graphical interface, allowing for collaborative music creation.
 
